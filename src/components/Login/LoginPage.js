@@ -6,7 +6,7 @@ class LoginPage extends React.Component {
     return (
       <div className="container">
         <div className="login-page">
-          <LoginForm />
+         <LoginForm />
         </div>
       </div>
     )
