@@ -55,39 +55,39 @@ class LoginForm extends React.Component {
   render() {
     if (this.state.redirect) {
       return (
-        <Redirect to="/" />
+         <Redirect to="/" />
       )
     } else
 
-      return (
-        <form className="ui login form" onSubmit={this.handleSubmit}>
-          <h1>Log in</h1>
+    return (
+      <form className="ui login form" onSubmit={this.handleSubmit}>
+        <h1>Log in</h1>
 
-          {this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div> }
+        {this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div> }
 
-          <div className={classnames('field', {error: !!this.state.errors.identifier})}>
-            <label>Username / Email</label>
-            <input
-              value={this.state.identifier}
-              onChange={this.handleChange}
-              type="text"
-              name="identifier"/>
-            <span>{this.state.errors.identifier}</span>
-          </div>
+        <div className={classnames('field', {error: !!this.state.errors.identifier})}>
+          <label>Username / Email</label>
+          <input
+            value={this.state.identifier}
+            onChange={this.handleChange}
+            type="text"
+            name="identifier"/>
+          <span>{this.state.errors.identifier}</span>
+        </div>
 
-          <div className={classnames('field', {error: !!this.state.errors.password})}>
-            <label>Password</label>
-            <input
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-              name="password"/>
-            <span>{this.state.errors.password}</span>
-          </div>
+        <div className={classnames('field', {error: !!this.state.errors.password})}>
+          <label>Password</label>
+          <input
+            value={this.state.password}
+            onChange={this.handleChange}
+            type="password"
+            name="password"/>
+          <span>{this.state.errors.password}</span>
+        </div>
 
-          <button className="ui button blue" type="submit">Submit</button>
-        </form>
-      )
+        <button className="ui button blue" type="submit">Submit</button>
+      </form>
+    )
   }
 }
 
