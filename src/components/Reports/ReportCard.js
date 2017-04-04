@@ -1,21 +1,28 @@
 import React from 'react';
+import { Button, Modal } from 'semantic-ui-react'
 
-export default function ReportCard({link, deleteLink}) {
+export default function ReportCard({report, deleteLink}) {
   return (
     <div className="card">
+      <Modal trigger={<Button style={{ background: '#1678c2', color: 'white' }}>Показать фото</Button>}>
+        <Modal.Header>Фото нарушения</Modal.Header>
+        <Modal.Content image>
+          <img src={`data:image/jpeg;base64,${report.image}`} alt="das" />
+        </Modal.Content>
+      </Modal>
       <div className="content">
-        <div className="right floated"><b>Count: </b>{link.count}</div>
-        <div className="header"><b>Link: </b>{link.url}</div>
-        <div className="description"><b>Short Link: </b>{link.shortLink}</div>
-        <div className="description"><b>Tags: </b>{link.tags}</div>
+        <div className="header"><b>Номер заявки: </b>1</div>
+        <div className="header"><b>Описание: </b>{report.description}</div>
       </div>
       <div className="left floated">
-        <button className="ui button" onClick={() => deleteLink(link._id)}>Delete</button>
+        <button className="ui primary button">Отправить</button>
+        <button className="ui button" onClick={() => deleteLink(report._id)}>Отклонить</button>
       </div>
     </div>
+
   );
 }
 
 ReportCard.propTypes = {
-  link: React.PropTypes.object.isRequired
+  report: React.PropTypes.object.isRequired
 };
