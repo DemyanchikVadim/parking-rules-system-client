@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { SET_LINKS, LINK_DELETED } from '../constants/AppConstants';
+import { SET_REPORTS, LINK_DELETED } from '../constants/AppConstants';
 
-export function setLinks(links) {
+export function setReports(links) {
   return {
-    type: SET_LINKS,
+    type: SET_REPORTS,
     links
   };
 }
@@ -17,14 +17,14 @@ export function linkDeleted(linkId) {
 
 export function deleteLink(id) {
   return dispatch => {
-    return axios.delete(`/api/links/${id}`)
+    return axios.delete(`/api/reports/${id}`)
       .then(data => dispatch(linkDeleted(id)));
   }
 }
 
-export function fetchLinks() {
+export function fetchReports() {
   return dispatch => {
-    axios.get('/api/links')
-      .then(res => dispatch(setLinks(res.data)));
+    axios.get('/api/reports')
+      .then(res => dispatch(setReports(res.data)));
   };
 }

@@ -1,25 +1,25 @@
 import React from 'react';
 import ReportGard from './ReportCard';
 
-export default function ReportsList({ links, deleteLink }) {
+export default function ReportsList({ reports, deleteLink }) {
   const emptyMessage = (
-    <p>There is no links yet</p>
+    <p>There is no reports yet</p>
   );
   
-  const linksList = (
+  const reportsList = (
     <div className="ui one cards">
-      { links.map(link => <ReportGard link={link} key={link._id} deleteLink={deleteLink}/>) }
+      { reports.map(report => <ReportGard report={report} key={report._id} deleteLink={deleteLink}/>) }
     </div>
   );
   
   return (
     <div>
-      { links.length === 0 ? emptyMessage : linksList }
+      { reports.length === 0 ? emptyMessage : reportsList }
     </div>
   );
 }
 
 ReportsList.propTypes = {
-  links: React.PropTypes.array.isRequired,
+  reports: React.PropTypes.array.isRequired,
   deleteLink: React.PropTypes.func.isRequired
 };
