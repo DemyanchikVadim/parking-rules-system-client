@@ -61,12 +61,12 @@ class LoginForm extends React.Component {
 
     return (
       <form className="ui login form" onSubmit={this.handleSubmit}>
-        <h1>Log in</h1>
+        <h1>Войти в систему</h1>
 
         {this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div> }
 
         <div className={classnames('field', {error: !!this.state.errors.identifier})}>
-          <label>Username / Email</label>
+          <label>Имя пользователя / Email</label>
           <input
             value={this.state.identifier}
             onChange={this.handleChange}
@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
         </div>
 
         <div className={classnames('field', {error: !!this.state.errors.password})}>
-          <label>Password</label>
+          <label>Пароль</label>
           <input
             value={this.state.password}
             onChange={this.handleChange}
@@ -85,7 +85,7 @@ class LoginForm extends React.Component {
           <span>{this.state.errors.password}</span>
         </div>
 
-        <button className="ui button blue" type="submit">Submit</button>
+        <button className="ui button blue" type="submit">Отправить</button>
       </form>
     )
   }
