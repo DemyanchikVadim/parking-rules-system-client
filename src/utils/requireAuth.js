@@ -8,7 +8,7 @@ export default function(ComposedComponent) {
       if (!this.props.isAuthenticated) {
         this.props.addFlashMessage({
           type: 'error',
-          text: 'You need to login to access this page'
+          text: 'Для доступа к этой странице вам необходимо войти в систему'
         });
         this.context.router.push('/login');
       }

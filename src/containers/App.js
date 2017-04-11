@@ -28,9 +28,9 @@ class App extends React.Component {
 
     const userLinks = (
       <div className="ui menu">
-        <ActiveLink activeOnlyWhenExact to="/" label="Reports" />
+        <ActiveLink activeOnlyWhenExact to="/" label="Заявки" />
         <div className="right menu">
-          <a className="item" href="#" onClick={this.logout} >Logout</a>
+          <a className="item" href="#" onClick={this.logout} >Выйти</a>
         </div>
       </div>
     );
