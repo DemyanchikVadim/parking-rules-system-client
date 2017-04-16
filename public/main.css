@@ -26,3 +26,13 @@ img {
     width: 100%;
     height: 100%;
 }
+
+.intrc-image {
+    width: 70%;
+    height: 70%;
+}
+
+.intrc {
+    display: flex;
+    align-items: center;
+}
