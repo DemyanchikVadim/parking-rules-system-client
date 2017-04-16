@@ -5,6 +5,12 @@ import { logout } from '../actions/authActions';
 
 import ReportsPage from './Reports/ReportsPage';
 import LoginPage from '../components/Login/LoginPage';
+import HomePage from './Home/HomePage';
+import Sidewalk from '../components/Instructions/Sidewalk';
+import ParkingSecondRow from '../components/Instructions/ParkingSecondRow';
+import StopNotAllowed from '../components/Instructions/StopNotAllowed';
+import ParkingDisabled from '../components/Instructions/ParkingDisabled';
+import Crosswalk from '../components/Instructions/Crosswalk';
 import NotFound from '../components/Notfound/NotFound';
 import FlashMessagList from './Flash/FlashMessagesList';
 
@@ -27,11 +33,19 @@ class App extends React.Component {
     const { isAuthenticated } = this.props.auth;
 
     const userLinks = (
-      <div className="ui menu">
-        <ActiveLink activeOnlyWhenExact to="/" label="Заявки" />
+      <div>
+      <div className="ui inverted menu blue">
+        <div className="item">Система фиксации автонарушений</div>
         <div className="right menu">
           <a className="item" href="#" onClick={this.logout} >Выйти</a>
         </div>
+      </div>
+      <div className="ui inverted vertical menu left floated blue">
+      <ActiveLink  activeOnlyWhenExact to="/" label="Главная" />
+      <ActiveLink  activeOnlyWhenExact to="/reports" label="Заявки" />
+      <ActiveLink  activeOnlyWhenExact to="/rules" label="Правила" />
+      <ActiveLink  activeOnlyWhenExact to="/sidewalk" label="Инструкции" />
+      </div>
       </div>
     );
 
@@ -41,12 +55,18 @@ class App extends React.Component {
     );
 
     return (
-      <div className="ui container">
-        { isAuthenticated ? userLinks : guestLinks }
+      <div>
+        {isAuthenticated ? userLinks : guestLinks}
         <FlashMessagList />
         <Switch>
-          <Route exact path="/" component={requireAuth(ReportsPage)} />
+          <Route exact path="/" component={requireAuth(HomePage)} />
+          <Route path="/reports" component={requireAuth(ReportsPage)} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/sidewalk" component={Sidewalk} />
+          <Route path="/parkingsecondrow" component={ParkingSecondRow} />
+          <Route path="/stopnotallowed" component={StopNotAllowed} />
+          <Route path="/parkingdisabled" component={ParkingDisabled} />
+          <Route path="/Crosswalk" component={Crosswalk} />
           <Route component={NotFound} />
         </Switch>
       </div>
