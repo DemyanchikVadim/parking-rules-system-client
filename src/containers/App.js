@@ -5,6 +5,7 @@ import { logout } from '../actions/authActions';
 
 import ReportsPage from './Reports/ReportsPage';
 import LoginPage from '../components/Login/LoginPage';
+import SignupPage from '../components/Signup/SignupPage';
 import HomePage from './Home/HomePage';
 import Sidewalk from '../components/Instructions/Sidewalk';
 import ParkingSecondRow from '../components/Instructions/ParkingSecondRow';
@@ -35,7 +36,7 @@ class App extends React.Component {
     const userLinks = (
       <div>
       <div className="ui inverted menu blue">
-        <div className="item">Система фиксации автонарушений</div>
+        <ActiveLink  activeOnlyWhenExact to="/" label="Система фиксации автонарушений" />
         <div className="right menu">
           <a className="item" href="#" onClick={this.logout} >Выйти</a>
         </div>
@@ -62,6 +63,7 @@ class App extends React.Component {
           <Route exact path="/" component={requireAuth(HomePage)} />
           <Route path="/reports" component={requireAuth(ReportsPage)} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignupPage} />
           <Route path="/sidewalk" component={Sidewalk} />
           <Route path="/parkingsecondrow" component={ParkingSecondRow} />
           <Route path="/stopnotallowed" component={StopNotAllowed} />
