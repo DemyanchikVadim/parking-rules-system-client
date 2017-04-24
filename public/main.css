@@ -36,3 +36,18 @@ img {
     display: flex;
     align-items: center;
 }
+
+
+.sign-up-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-up {
+    border: 2px solid #bbbbbb;
+    border-radius: 10px;
+    width: 500px;
+    padding: 20px;
+    background-color: #c2c5ca;
+}
